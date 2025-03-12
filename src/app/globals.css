@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-blue: #4f6ef7;
+  --primary-purple: #9d4edd;
+  --highlight-light: #ebf4ff;
+  --highlight-dark: #2a2a72;
+  --success-green: #22c55e;
+  --warning-yellow: #f59e0b;
+  --tip-teal: #06b6d4;
+  --question-blue: #3b82f6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --highlight-light: #2a2a72;
+    --highlight-dark: #ebf2ff;
+    --success-green: #4ade80;
+    --warning-yellow: #fbbf24;
+    --tip-teal: #2dd4bf;
+    --question-blue: #60a5fa;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Markdown 样式 */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose h1, .prose h2 {
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.prose h3 {
+  color: var(--primary-blue);
+  font-size: 1.25rem;
+}
+
+.prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  line-height: 1.6;
+}
+
+.prose ul, .prose ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  line-height: 1.5;
+}
+
+.prose li > p {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.prose li > ul, .prose li > ol {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.prose code {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.dark .prose code {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* 彩色文本样式 */
+.prose .highlight {
+  background-color: var(--highlight-light);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-weight: 500;
+}
+
+.prose .primary {
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.prose .secondary {
+  color: var(--primary-purple);
+  font-weight: 500;
+}
+
+.prose .num-point {
+  font-weight: bold;
+  color: var(--primary-blue);
+}
+
+.prose ol li::marker {
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.prose ul li::marker {
+  color: var(--primary-purple);
+}
+
+.dark .prose .highlight {
+  background-color: var(--highlight-light);
+  color: white;
+}
+
+/* 标题下方的横线 */
+.prose h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+  margin-top: 0.3em;
+}
+
+/* 学习主题样式 */
+.prose .math {
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.prose .science {
+  color: var(--success-green);
+  font-weight: 500;
+}
+
+.prose .language {
+  color: var(--primary-purple);
+  font-weight: 500;
+}
+
+.prose .tip {
+  color: var(--tip-teal);
+  font-weight: 500;
+}
+
+.prose .question {
+  color: var(--question-blue);
+  font-weight: 500;
+}
+
+.prose .warning {
+  color: var(--warning-yellow);
+  font-weight: 500;
+}
+
+/* 特殊块样式 */
+.prose blockquote {
+  border-left: 4px solid var(--primary-blue);
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+  background-color: var(--highlight-light);
+  padding: 0.5em 1em;
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.prose .thinking-block {
+  background-color: var(--highlight-light);
+  border-left: 4px solid var(--primary-purple);
+  padding: 0.5em 1em;
+  border-radius: 0 0.5em 0.5em 0;
+  margin: 1em 0;
+}
+
+.prose .example-block {
+  background-color: rgba(77, 124, 254, 0.1);
+  border-left: 4px solid var(--question-blue);
+  padding: 0.5em 1em;
+  border-radius: 0 0.5em 0.5em 0;
+  margin: 1em 0;
+}
